@@ -50,7 +50,9 @@ airflow-docker/
 ```
 
 - ![Pastas_e_arquivos.png](Pastas_e_arquivos.png)
+
 *Utilizando o VsCode para demonstração da organização de pastas e arquivos*
+
 
 
 Fluxo da DAG (pipeline_lakehouse_medallion)
@@ -76,8 +78,8 @@ docker compose up -d --build
 Acessar a interface Web do Airflow:
 
 URL: http://localhost:8080
-Usuário padrão: airflow
-Senha padrão: airflow
+- Usuário padrão: airflow
+- Senha padrão: airflow
 
 Executar a DAG:
 
