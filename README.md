@@ -67,6 +67,14 @@ Como Executar o Projeto
 Pré-requisitos
 - Docker Desktop instalado e em execução.
 - Clonar o repositório Git.
+- Vincular no Airflow, na aba conexões, o Spark:
+```
+conection id: spark_default
+conection type: Spark
+host: local
+
+Os demais campos podem deixar em branco.
+```
 
 Subir os containers do Airflow:
 ```
