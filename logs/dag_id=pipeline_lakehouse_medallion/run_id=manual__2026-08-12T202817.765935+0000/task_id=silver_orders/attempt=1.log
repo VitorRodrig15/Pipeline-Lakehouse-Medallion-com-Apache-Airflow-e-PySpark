@@ -1,0 +1,55 @@
+[2026-08-12T21:56:18.438+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-12T21:56:18.618+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_lakehouse_medallion.silver_orders manual__2026-08-12T20:28:17.765935+00:00 [queued]>
+[2026-08-12T21:56:18.674+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_lakehouse_medallion.silver_orders manual__2026-08-12T20:28:17.765935+00:00 [queued]>
+[2026-08-12T21:56:18.677+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-08-12T21:56:18.762+0000] {taskinstance.py:2879} INFO - Executing <Task(BashOperator): silver_orders> on 2026-08-12 20:28:17.765935+00:00
+[2026-08-12T21:56:18.784+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=2482) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-08-12T21:56:18.801+0000] {standard_task_runner.py:72} INFO - Started process 2484 to run task
+[2026-08-12T21:56:18.788+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pipeline_lakehouse_medallion', 'silver_orders', 'manual__2026-08-12T20:28:17.765935+00:00', '--job-id', '65', '--raw', '--subdir', 'DAGS_FOLDER/dag_lakehouse_pipeline.py', '--cfg-path', '/tmp/tmpnfj6uqhw']
+[2026-08-12T21:56:18.809+0000] {standard_task_runner.py:105} INFO - Job 65: Subtask silver_orders
+[2026-08-12T21:56:19.135+0000] {task_command.py:467} INFO - Running <TaskInstance: pipeline_lakehouse_medallion.silver_orders manual__2026-08-12T20:28:17.765935+00:00 [running]> on host 0f1005efa1ab
+[2026-08-12T21:56:19.464+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='engenharia_dados' AIRFLOW_CTX_DAG_ID='pipeline_lakehouse_medallion' AIRFLOW_CTX_TASK_ID='silver_orders' AIRFLOW_CTX_EXECUTION_DATE='2026-08-12T20:28:17.765935+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-12T20:28:17.765935+00:00'
+[2026-08-12T21:56:19.470+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-08-12T21:56:19.565+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-08-12T21:56:19.574+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/***/dags/scripts/silver_orders.py']
+[2026-08-12T21:56:19.611+0000] {subprocess.py:86} INFO - Output:
+[2026-08-12T21:56:23.114+0000] {subprocess.py:93} INFO - /home/***/.local/lib/python3.12/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+[2026-08-12T21:56:37.040+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-08-12T21:56:37.049+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-08-12T21:56:39.301+0000] {subprocess.py:93} INFO - 26/08/12 21:56:39 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-08-12T21:56:49.919+0000] {local_task_job_runner.py:341} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2026-08-12T21:56:49.926+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
+[2026-08-12T21:56:49.945+0000] {process_utils.py:132} INFO - Sending 15 to group 2484. PIDs of all processes in the group: [2489, 2515, 2484]
+[2026-08-12T21:56:49.951+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 2484
+[2026-08-12T21:56:49.956+0000] {taskinstance.py:3083} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-08-12T21:56:49.960+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-08-12T21:56:50.075+0000] {taskinstance.py:3301} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 240, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3085, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2026-08-12T21:56:50.132+0000] {taskinstance.py:1225} INFO - Marking task as UP_FOR_RETRY. dag_id=pipeline_lakehouse_medallion, task_id=silver_orders, run_id=manual__2026-08-12T20:28:17.765935+00:00, execution_date=20260812T202817, start_date=20260812T215618, end_date=20260812T215650
+[2026-08-12T21:56:50.218+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-08-12T21:56:50.255+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=2484, status='terminated', exitcode=2, started='21:56:18') (2484) terminated with exit code 2
+[2026-08-12T21:56:50.599+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=2489, status='terminated', started='21:56:19') (2489) terminated with exit code None
+[2026-08-12T21:56:50.859+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=2515, status='terminated', started='21:56:22') (2515) terminated with exit code None

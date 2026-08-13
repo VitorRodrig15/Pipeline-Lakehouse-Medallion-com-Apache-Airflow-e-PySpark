@@ -1,0 +1,28 @@
+[2026-08-12T18:34:50.214+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-12T18:34:50.250+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pyspark_local_test.executar_pyspark manual__2026-08-12T18:34:47.765344+00:00 [queued]>
+[2026-08-12T18:34:50.272+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pyspark_local_test.executar_pyspark manual__2026-08-12T18:34:47.765344+00:00 [queued]>
+[2026-08-12T18:34:50.273+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-08-12T18:34:50.315+0000] {taskinstance.py:2879} INFO - Executing <Task(PythonOperator): executar_pyspark> on 2026-08-12 18:34:47.765344+00:00
+[2026-08-12T18:34:50.329+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=196) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-08-12T18:34:50.331+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pyspark_local_test', 'executar_pyspark', 'manual__2026-08-12T18:34:47.765344+00:00', '--job-id', '2', '--raw', '--subdir', 'DAGS_FOLDER/dag_pyspark_local.py', '--cfg-path', '/tmp/tmpwcd9fhwh']
+[2026-08-12T18:34:50.335+0000] {standard_task_runner.py:72} INFO - Started process 197 to run task
+[2026-08-12T18:34:50.336+0000] {standard_task_runner.py:105} INFO - Job 2: Subtask executar_pyspark
+[2026-08-12T18:34:50.587+0000] {task_command.py:467} INFO - Running <TaskInstance: pyspark_local_test.executar_pyspark manual__2026-08-12T18:34:47.765344+00:00 [running]> on host 4099a95615c9
+[2026-08-12T18:34:50.876+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='pyspark_local_test' AIRFLOW_CTX_TASK_ID='executar_pyspark' AIRFLOW_CTX_EXECUTION_DATE='2026-08-12T18:34:47.765344+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-08-12T18:34:47.765344+00:00'
+[2026-08-12T18:34:50.881+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-08-12T18:35:14.480+0000] {logging_mixin.py:190} INFO - --- Resultado do DataFrame ---
+[2026-08-12T18:35:26.091+0000] {logging_mixin.py:190} INFO - +---------+---------+
+|     Area|Orcamento|
++---------+---------+
+|   Vendas|     1000|
+|       TI|     2500|
+|Marketing|     1500|
++---------+---------+
+[2026-08-12T18:35:27.161+0000] {python.py:240} INFO - Done. Returned value was: None
+[2026-08-12T18:35:27.183+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-08-12T18:35:27.185+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=pyspark_local_test, task_id=executar_pyspark, run_id=manual__2026-08-12T18:34:47.765344+00:00, execution_date=20260812T183447, start_date=20260812T183450, end_date=20260812T183527
+[2026-08-12T18:35:27.259+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2026-08-12T18:35:27.284+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-08-12T18:35:27.286+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

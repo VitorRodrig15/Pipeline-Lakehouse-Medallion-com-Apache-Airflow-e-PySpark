@@ -1,0 +1,29 @@
+[2026-08-12T22:43:42.784+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-08-12T22:43:42.905+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: pipeline_lakehouse_medallion.silver_orders manual_retry_1786574548 [queued]>
+[2026-08-12T22:43:42.962+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: pipeline_lakehouse_medallion.silver_orders manual_retry_1786574548 [queued]>
+[2026-08-12T22:43:42.966+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 1
+[2026-08-12T22:43:43.045+0000] {taskinstance.py:2879} INFO - Executing <Task(BashOperator): silver_orders> on 2026-08-12 22:42:35+00:00
+[2026-08-12T22:43:43.087+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'pipeline_lakehouse_medallion', 'silver_orders', 'manual_retry_1786574548', '--job-id', '22', '--raw', '--subdir', 'DAGS_FOLDER/dag_lakehouse_pipeline.py', '--cfg-path', '/tmp/tmpf8qsw08i']
+[2026-08-12T22:43:43.081+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=4217) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-08-12T22:43:43.094+0000] {standard_task_runner.py:105} INFO - Job 22: Subtask silver_orders
+[2026-08-12T22:43:43.096+0000] {standard_task_runner.py:72} INFO - Started process 4260 to run task
+[2026-08-12T22:43:43.436+0000] {task_command.py:467} INFO - Running <TaskInstance: pipeline_lakehouse_medallion.silver_orders manual_retry_1786574548 [running]> on host 9a4e9c967140
+[2026-08-12T22:43:43.944+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='engenharia_dados' AIRFLOW_CTX_DAG_ID='pipeline_lakehouse_medallion' AIRFLOW_CTX_TASK_ID='silver_orders' AIRFLOW_CTX_EXECUTION_DATE='2026-08-12T22:42:35+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual_retry_1786574548'
+[2026-08-12T22:43:43.949+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-08-12T22:43:44.024+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-08-12T22:43:44.029+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'python3 /opt/***/dags/scripts/silver_orders.py']
+[2026-08-12T22:43:44.072+0000] {subprocess.py:86} INFO - Output:
+[2026-08-12T22:43:47.479+0000] {subprocess.py:93} INFO - /home/***/.local/lib/python3.12/site-packages/pyspark/bin/load-spark-env.sh: line 68: ps: command not found
+[2026-08-12T22:43:58.438+0000] {subprocess.py:93} INFO - Setting default log level to "WARN".
+[2026-08-12T22:43:58.454+0000] {subprocess.py:93} INFO - To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+[2026-08-12T22:43:59.669+0000] {subprocess.py:93} INFO - 26/08/12 22:43:59 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+[2026-08-12T22:44:04.313+0000] {subprocess.py:93} INFO - 26/08/12 22:44:04 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+[2026-08-12T22:44:34.601+0000] {subprocess.py:93} INFO - [Stage 0:>                                                          (0 + 0) / 1][Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 1:>                                                          (0 + 2) / 2][Stage 1:=============================>                             (1 + 1) / 2]
+[2026-08-12T22:44:34.608+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-08-12T22:44:34.807+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-08-12T22:44:34.810+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=pipeline_lakehouse_medallion, task_id=silver_orders, run_id=manual_retry_1786574548, execution_date=20260812T224235, start_date=20260812T224342, end_date=20260812T224434
+[2026-08-12T22:44:34.982+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2026-08-12T22:44:35.097+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-08-12T22:44:35.122+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
